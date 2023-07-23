@@ -5,5 +5,6 @@ val gameReducer = combineReducers(
     blueCarReducer,
     gameStatusReducer,
     scoreReducer,
-    gameControlReducer
+    gameControlReducer,
+    levelsReducer
 )

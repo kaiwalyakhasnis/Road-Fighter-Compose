@@ -19,6 +19,7 @@ import com.example.roadfightercompose.components.DashBoard
 import com.example.roadfightercompose.components.GameControls
 import com.example.roadfightercompose.components.GameOver
 import com.example.roadfightercompose.components.PlayerCar
+import com.example.roadfightercompose.store.state.LevelsState
 import com.example.roadfightercompose.store.type.GameStatus
 import mozilla.components.lib.state.ext.observeAsComposableState
 
@@ -32,6 +33,10 @@ fun GameScreen(
     val score = gameViewModel.gameStore.observeAsComposableState(
         map = { state -> state.scoreState }
     ).value?.score ?: 0
+
+    val levelState = gameViewModel.gameStore.observeAsComposableState(
+        map = { state -> state.levelsState }
+    ).value ?: LevelsState()
 
     when (status.value?.status) {
         is GameStatus.Running -> {
@@ -47,7 +52,7 @@ fun GameScreen(
                     targetValue = 1f,
                     animationSpec = infiniteRepeatable(
                         animation = tween(
-                            durationMillis = 1000,
+                            durationMillis = levelState.getCurrentLevelData().speed,
                             easing = LinearEasing
                         )
                     )
@@ -58,7 +63,8 @@ fun GameScreen(
                     height = maxHeight,
                     width = maxWidth,
                     storeDispatcher = gameViewModel.storeDispatcher,
-                    animation = animation.value
+                    animation = animation.value,
+                    roadColorFilter = levelState.getCurrentLevelData().roadColorFilter
                 )
 
                 // blue car
@@ -93,7 +99,8 @@ fun GameScreen(
                 // score and level
                 DashBoard(
                     modifier = Modifier.align(Alignment.TopStart),
-                    score = score
+                    score = score,
+                    level = levelState.getCurrentLevelData().level
                 )
             }
         }

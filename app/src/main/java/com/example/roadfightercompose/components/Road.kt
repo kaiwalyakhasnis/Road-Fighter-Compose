@@ -11,6 +11,9 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.BlendMode
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.layout.boundsInRoot
@@ -28,7 +31,8 @@ fun BusyRoad(
     height: Dp,
     width: Dp,
     storeDispatcher: StoreDispatcher,
-    animation: Float
+    animation: Float,
+    roadColorFilter: Color
 ) {
     val roadSectionModifier = Modifier.size(width, height)
     val scrollState = rememberScrollState()
@@ -49,7 +53,8 @@ fun BusyRoad(
                 type = RoadSectionType.Left,
                 modifier = roadSectionModifier,
                 currentPosY = currentPosY,
-                height = height * 2
+                height = height * 2,
+                roadColorFilter = roadColorFilter
             )
         }
 
@@ -62,7 +67,8 @@ fun BusyRoad(
                 type = RoadSectionType.Center,
                 modifier = roadSectionModifier,
                 currentPosY = currentPosY,
-                height = height * 2
+                height = height * 2,
+                roadColorFilter = roadColorFilter
             )
         }
 
@@ -80,7 +86,8 @@ fun BusyRoad(
                 type = RoadSectionType.Right,
                 modifier = roadSectionModifier,
                 currentPosY = currentPosY,
-                height = height * 2
+                height = height * 2,
+                roadColorFilter = roadColorFilter
             )
         }
     }
@@ -91,7 +98,8 @@ fun RoadSection(
     type: RoadSectionType,
     modifier: Modifier,
     currentPosY: Dp,
-    height: Dp
+    height: Dp,
+    roadColorFilter: Color
 ) {
     val image = painterResource(
         when (type) {
@@ -101,17 +109,25 @@ fun RoadSection(
         }
     )
 
+    val colorFilter = ColorFilter.tint(
+        color = when (type) {
+            RoadSectionType.Left, RoadSectionType.Right -> roadColorFilter
+            RoadSectionType.Center -> Color.Unspecified
+        }, blendMode = BlendMode.Color
+    )
     Image(
         painter = image,
         contentDescription = null,
         modifier = modifier.offset(y = currentPosY),
-        contentScale = ContentScale.FillBounds
+        contentScale = ContentScale.FillBounds,
+        colorFilter = colorFilter
     )
     Image(
         painter = image,
         contentDescription = null,
         modifier = modifier.offset(y = currentPosY - height + 2.dp),
-        contentScale = ContentScale.FillBounds
+        contentScale = ContentScale.FillBounds,
+        colorFilter = colorFilter
     )
 }
 

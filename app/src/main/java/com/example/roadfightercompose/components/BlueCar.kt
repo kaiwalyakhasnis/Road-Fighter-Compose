@@ -29,7 +29,7 @@ fun BlueCar(
     val (blueCarOffset, setBlueCarOffset) = remember {
         mutableStateOf((blueCarPositionRange).random())
     }
-    if ((0.400f..0.420f).contains(animation)) {
+    if ((0.000f..0.020f).contains(animation)) {
         setBlueCarOffset((blueCarPositionRange).random())
     }
     val offsetAnimation: Dp by animateDpAsState(

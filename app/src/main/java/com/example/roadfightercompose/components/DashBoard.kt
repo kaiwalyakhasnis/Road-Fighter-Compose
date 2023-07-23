@@ -40,5 +40,23 @@ fun DashBoard(
                 fontSize = 20.sp
             )
         }
+
+        Row(
+            horizontalArrangement = Arrangement.Center
+        ){
+            Text(
+                text = "Level",
+                color = Color.White,
+                fontSize = 20.sp,
+            )
+        }
+
+        Row{
+            Text(
+                text = "$level",
+                color = Color.White,
+                fontSize = 20.sp
+            )
+        }
     }
 }
