@@ -19,7 +19,7 @@ fun GreenCar(
     height: Dp,
     storeDispatcher: StoreDispatcher
 ) {
-    val carPainter: Painter = painterResource(id = R.drawable.blue_car)
+    val carPainter: Painter = painterResource(id = R.drawable.yellow_car)
     val carWidth: Dp = height * 0.5f
     val carOffset: Dp = height * 0.25f
 
