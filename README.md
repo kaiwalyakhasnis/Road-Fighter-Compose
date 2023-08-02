@@ -1,2 +1,2 @@
 # RoadFighterCompose
-![](https://github.com/kaiwalyakhasnis/RoadFighterCompose/blob/master/output.gif =480x800)
+<img src="https://github.com/kaiwalyakhasnis/RoadFighterCompose/blob/master/output.gif" width="480" height="800">
