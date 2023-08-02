@@ -10,7 +10,8 @@ data class LevelsState(
         LevelData(level = 2, speed = 1400, roadColorFilter = Color.Blue),
         LevelData(level = 3, speed = 1300, roadColorFilter = LightRed),
         LevelData(level = 4, speed = 1200, roadColorFilter = Color.Transparent),
-        LevelData(level = 5, speed = 1000, roadColorFilter = Color.Blue)
+        LevelData(level = 5, speed = 1000, roadColorFilter = Color.Blue),
+        LevelData(level = 6, speed = 750, roadColorFilter = LightRed)
     )
 ) {
     fun getCurrentLevelData(): LevelData {
