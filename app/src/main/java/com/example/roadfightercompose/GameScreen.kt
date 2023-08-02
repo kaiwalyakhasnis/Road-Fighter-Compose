@@ -117,5 +117,3 @@ fun GameScreen(
         }
     }
 }
-
-
