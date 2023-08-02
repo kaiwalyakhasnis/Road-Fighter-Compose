@@ -14,6 +14,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.roadfightercompose.components.BlueCar
+import com.example.roadfightercompose.components.GreenCar
+import com.example.roadfightercompose.components.YellowCar
 import com.example.roadfightercompose.components.BusyRoad
 import com.example.roadfightercompose.components.DashBoard
 import com.example.roadfightercompose.components.GameControls
@@ -67,12 +69,26 @@ fun GameScreen(
                     roadColorFilter = levelState.getCurrentLevelData().roadColorFilter
                 )
 
-                // blue car
-                BlueCar(
-                    animation = animation.value,
-                    height = maxHeight,
-                    storeDispatcher = gameViewModel.storeDispatcher
-                )
+    // green car
+    GreenCar(
+        animation = animation.value,
+        height = maxHeight,
+        storeDispatcher = gameViewModel.storeDispatcher
+    )
+
+    // yellow car
+    YellowCar(
+        animation = animation.value,
+        height = maxHeight,
+        storeDispatcher = gameViewModel.storeDispatcher
+    )
+
+    // blue car
+    BlueCar(
+        animation = animation.value,
+        height = maxHeight,
+        storeDispatcher = gameViewModel.storeDispatcher
+    )
 
                 // red car
                 PlayerCar(
