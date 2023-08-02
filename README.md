@@ -1,2 +1,2 @@
 # RoadFighterCompose
-![](https://github.com/kaiwalyakhasnis/RoadFighterCompose/blob/master/output.gif =250x250)
+![](https://github.com/kaiwalyakhasnis/RoadFighterCompose/blob/master/output.gif =480x800)
