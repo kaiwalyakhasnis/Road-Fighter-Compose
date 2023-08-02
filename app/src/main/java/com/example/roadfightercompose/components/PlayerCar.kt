@@ -56,9 +56,7 @@ fun PlayerCar(
         // collision detection
         if (
             roadState?.isCollidingWith(playerCarBounds) == true || // left road barrier
-            blueCarState?.isCollidingWith(playerCarBounds) == true ||
-            yellowCarState?.isCollidingWith(playerCarBounds) == true ||
-            greenCarState?.isCollidingWith(playerCarBounds) == true
+            blueCarState?.isCollidingWith(playerCarBounds) == true
         ) {
             hapticFeedback.performHapticFeedback(
                 hapticFeedbackType = HapticFeedbackType.LongPress
